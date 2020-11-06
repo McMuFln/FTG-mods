@@ -45,10 +45,10 @@ class AverageMod(loader.Module):
 		w, h = draw.textsize(ts, font=font)
 		imtext = Image.new("RGBA", (W+10, H+1), (0, 0,0,0))
 		draw = ImageDraw.Draw(imtext)
-		draw.text((10, 3),tf,(0,0,0),font=font, align='left')
-		draw.text((360, 3),ts,(0,0,0),font=font, align='left')
+		draw.text((10, 1),tf,(0,0,0),font=font, align='left')
+		draw.text((360, 1),ts,(0,0,0),font=font, align='left')
 		imtext.thumbnail((680, 501))
-		img.paste(imtext, (10,10), imtext)
+		img.paste(imtext, (10,7), imtext)
 		out = io.BytesIO()
 		out.name = "enjoyer.jpg"
 		img.save(out)
