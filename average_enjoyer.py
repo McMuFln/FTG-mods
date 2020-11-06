@@ -39,28 +39,28 @@ class AverageMod(loader.Module):
 				txt = reply.raw_text
 		else:
 			txt = utils.get_args_raw(message)
-        pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
-		await message.edit("<b>Извиняюсь.</b>")
-        await message.edit("<b>Извиняюсь..</b>")
-        await message.edit("<b>Извиняюсь...</b>")
+		pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
+			await message.edit("<b>Извиняюсь.</b>")
+		await message.edit("<b>Извиняюсь..</b>")
+		await message.edit("<b>Извиняюсь...</b>")
 		pic.raw.decode_content = True
 		img = Image.open(io.BytesIO(pic.content)).convert("RGB")
 
 		W, H = img.size
 		text = message.text
-        tf = text[5:text.find("&")]
-        ts = text[text.find("&")+5:len(text)]
-        draw = ImageDraw.Draw(img)
-        font = ImageFont.truetype(io.BytesIO(f), 34, encoding='UTF-8')
-        imtext = Image.new("RGBA", (W+10, H+10), (0, 0,0,0))
-        draw = ImageDraw.Draw(imtext)
-        draw.text((10, 10),tf,(0,0,0),font=font, align='left')
-        draw.text((340, 10),ts,(0,0,0),font=font, align='left')
-        imtext.thumbnail((680, 501))
-        img.paste(imtext, (10,10), imtext)
-        out = io.BytesIO()
-        out.name = "enjoyer.jpg"
-        img.save(out)
-        out.seek(0)
-        await message.client.send_file(message.to_id, out, reply_to=reply)
-        await message.delete()
+		tf = text[5:text.find("&")]
+		ts = text[text.find("&")+5:len(text)]
+		draw = ImageDraw.Draw(img)
+		font = ImageFont.truetype(io.BytesIO(f), 34, encoding='UTF-8')
+		imtext = Image.new("RGBA", (W+10, H+10), (0, 0,0,0))
+		draw = ImageDraw.Draw(imtext)
+		draw.text((10, 10),tf,(0,0,0),font=font, align='left')
+		draw.text((340, 10),ts,(0,0,0),font=font, align='left')
+		imtext.thumbnail((680, 501))
+		img.paste(imtext, (10,10), imtext)
+		out = io.BytesIO()
+		out.name = "enjoyer.jpg"
+		img.save(out)
+		out.seek(0)
+		await message.client.send_file(message.to_id, out, reply_to=reply)
+		await message.delete()
