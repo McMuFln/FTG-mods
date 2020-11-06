@@ -39,9 +39,15 @@ class AverageMod(loader.Module):
 		W, H = img.size
 		text = message.text
 		tf = text[6:text.find("&")]
-		tf = "\n".join(wrap(tf, 29))
+		try:
+		    tf = "\n".join(wrap(tf, 29))
+		except:
+		    pass
 		ts = text[text.find("&")+6:len(text)]
-		ts = "\n".join(wrap(ts, 29))
+		try:
+		    ts = "\n".join(wrap(ts, 29))
+		except:
+		    pass
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
 		w, h = draw.textsize(ts, font=font)
