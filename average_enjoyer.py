@@ -30,9 +30,9 @@ class AverageMod(loader.Module):
 		f = ufr.content
 
 		pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
-		for i in range(10):
-			msg = "<b>Извиняюсь","."*i,".</b>"
-			await message.edit(msg)
+		for i in range(3):
+			msg = "|"*i
+			await message.edit(f"<b>{msg}</b>")
 		pic.raw.decode_content = True
 		img = Image.open(io.BytesIO(pic.content)).convert("RGB")
 
