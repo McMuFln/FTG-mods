@@ -40,7 +40,7 @@ class AverageMod(loader.Module):
 		else:
 			txt = utils.get_args_raw(message)
 		pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
-			await message.edit("<b>Извиняюсь.</b>")
+		await message.edit("<b>Извиняюсь.</b>")
 		await message.edit("<b>Извиняюсь..</b>")
 		await message.edit("<b>Извиняюсь...</b>")
 		pic.raw.decode_content = True
