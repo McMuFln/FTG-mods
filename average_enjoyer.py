@@ -41,8 +41,6 @@ class AverageMod(loader.Module):
 		tf = "Average\n"+"\n".join(wrap(tf, 29))+"\nFan"
 		ts = text[text.find("&")+5:len(text)]
 		ts = "Average\n"+"\n".join(wrap(ts, 29))+"\nenjoyer"
-		except:
-		    pass
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
 		w, h = draw.textsize(ts, font=font)
