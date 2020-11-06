@@ -28,18 +28,7 @@ class AverageMod(loader.Module):
 
 		ufr = requests.get("https://github.com/LaciaMemeFrame/FTG-Modules/blob/master/open-sans.ttf?raw=true")
 		f = ufr.content
-
-		reply = await message.get_reply_message()
-		args = utils.get_args_raw(message)
-		if not args:
-			if not reply:
-				await utils.answer(message, self.strings('usage', message))
-				return
-			else:
-				txt = reply.raw_text
-		else:
-			txt = utils.get_args_raw(message)
-		pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
+        	pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
 		await message.edit("<b>Извиняюсь.</b>")
 		await message.edit("<b>Извиняюсь..</b>")
 		await message.edit("<b>Извиняюсь...</b>")
@@ -48,10 +37,13 @@ class AverageMod(loader.Module):
 
 		W, H = img.size
 		text = message.text
-		tf = text[5:text.find("&")]
-		ts = text[text.find("&")+5:len(text)]
+		tf = text[6:text.find("&")]
+		tf = "\n".join(wrap(tf, 29))
+		ts = text[text.find("&")+6:len(text)]
+		ts = "\n".join(wrap(ts, 29))
 		draw = ImageDraw.Draw(img)
-		font = ImageFont.truetype(io.BytesIO(f), 34, encoding='UTF-8')
+		font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
+		w, h = draw.textsize(ts, font=font)
 		imtext = Image.new("RGBA", (W+10, H+10), (0, 0,0,0))
 		draw = ImageDraw.Draw(imtext)
 		draw.text((10, 10),tf,(0,0,0),font=font, align='left')
