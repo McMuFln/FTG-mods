@@ -42,8 +42,6 @@ class AverageMod(loader.Module):
 		tf = "\n".join(wrap(tf, 29))
 		ts = text[text.find("&")+5:len(text)]
 		ts = "\n".join(wrap(ts, 29))
-		except:
-		    pass
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
 		w, h = draw.textsize(ts, font=font)
