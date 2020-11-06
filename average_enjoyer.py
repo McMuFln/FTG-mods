@@ -38,14 +38,10 @@ class AverageMod(loader.Module):
 
 		W, H = img.size
 		text = message.text
-		tf = text[6:text.find("&")]
-		try:
-		    tf = "\n".join(wrap(tf, 29))
-		except:
-		    pass
-		ts = text[text.find("&")+6:len(text)]
-		try:
-		    ts = "\n".join(wrap(ts, 29))
+		tf = text[5:text.find("&")]
+		tf = "\n".join(wrap(tf, 29))
+		ts = text[text.find("&")+5:len(text)]
+		ts = "\n".join(wrap(ts, 29))
 		except:
 		    pass
 		draw = ImageDraw.Draw(img)
@@ -61,5 +57,5 @@ class AverageMod(loader.Module):
 		out.name = "enjoyer.jpg"
 		img.save(out)
 		out.seek(0)
-		await message.client.send_file(message.to_id, out, reply_to=reply)
+		await message.client.send_file(message.to_id, out)
 		await message.delete()
