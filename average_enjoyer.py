@@ -28,31 +28,32 @@ class AverageMod(loader.Module):
 
 		ufr = requests.get("https://github.com/LaciaMemeFrame/FTG-Modules/blob/master/open-sans.ttf?raw=true")
 		f = ufr.content
-        	pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
+
+        pic = requests.get("https://raw.githubusercontent.com/McMuFln/FTG-mods/main/enjoyer.png")
 		await message.edit("<b>Извиняюсь.</b>")
-		await message.edit("<b>Извиняюсь..</b>")
-		await message.edit("<b>Извиняюсь...</b>")
+        await message.edit("<b>Извиняюсь..</b>")
+        await message.edit("<b>Извиняюсь...</b>")
 		pic.raw.decode_content = True
 		img = Image.open(io.BytesIO(pic.content)).convert("RGB")
 
 		W, H = img.size
 		text = message.text
-		tf = text[6:text.find("&")]
-		tf = "\n".join(wrap(tf, 29))
-		ts = text[text.find("&")+6:len(text)]
-		ts = "\n".join(wrap(ts, 29))
-		draw = ImageDraw.Draw(img)
-		font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
-		w, h = draw.textsize(ts, font=font)
-		imtext = Image.new("RGBA", (W+10, H+10), (0, 0,0,0))
-		draw = ImageDraw.Draw(imtext)
-		draw.text((10, 10),tf,(0,0,0),font=font, align='left')
-		draw.text((340, 10),ts,(0,0,0),font=font, align='left')
-		imtext.thumbnail((680, 501))
-		img.paste(imtext, (10,10), imtext)
-		out = io.BytesIO()
-		out.name = "enjoyer.jpg"
-		img.save(out)
-		out.seek(0)
-		await message.client.send_file(message.to_id, out, reply_to=reply)
-		await message.delete()
+        tf = text[6:text.find("&")]
+        tf = "\n".join(wrap(tf, 29))
+        ts = text[text.find("&")+6:len(text)]
+        ts = "\n".join(wrap(ts, 29))
+        draw = ImageDraw.Draw(img)
+        font = ImageFont.truetype(io.BytesIO(f), 24, encoding='UTF-8')
+        w, h = draw.textsize(ts, font=font)
+        imtext = Image.new("RGBA", (W+10, H+10), (0, 0,0,0))
+        draw = ImageDraw.Draw(imtext)
+        draw.text((10, 10),tf,(0,0,0),font=font, align='left')
+        draw.text((340, 10),ts,(0,0,0),font=font, align='left')
+        imtext.thumbnail((680, 501))
+        img.paste(imtext, (10,10), imtext)
+        out = io.BytesIO()
+        out.name = "enjoyer.jpg"
+        img.save(out)
+        out.seek(0)
+        await message.client.send_file(message.to_id, out, reply_to=reply)
+        await message.delete()
